@@ -24,18 +24,10 @@ $(function () {
                     const dragNode = data.otherNode;
                     const parentNode = data.hitMode === 'over' ? dropNode : dropNode.getParent();
                     const parent = parentNode.data.taxonomyId || '';
-                    // const origParent = dragNode.data.parent;
                     let siblings = [];
                     (parentNode.getChildren() || []).forEach((v) => {
                         siblings.push(v.data.taxonomyId);
                     });
-                    // console.log(dropNode, data);
-                    // console.log(0, dropNode.title, dragNode.title, data.hitMode);
-                    console.log(1, dragNode.getParent().data.taxonomyId, dragNode.getParent().title);
-                    console.log(2, dragNode.data.taxonomyId, dragNode.title);
-                    console.log(3, parentNode.data.taxonomyId, parentNode.title);
-                    console.log(4, dropNode.data.taxonomyId, dropNode.title);
-                    console.log(5, siblings, data.hitMode);
                     const isExist = siblings.indexOf(dragNode.data.taxonomyId);
                     if (isExist >= 0) {
                         siblings.splice(isExist, 1);
@@ -62,7 +54,6 @@ $(function () {
                             break;
                         default:
                     }
-                    console.log(6, siblings);
                     $.ajax({
                         type: 'post',
                         url: '/taxonomy/save',
@@ -88,7 +79,6 @@ $(function () {
                             return false;
                         }
                     });
-                    // console.log(2, dragNode.getParent().data.taxonomyId, dropNode.getParent().data.taxonomyId, origParent);
                     return false;
                 }
             },
