@@ -1,0 +1,21 @@
+{
+  "pathDist": "public/dist",
+  "pathDev": "public/dev",
+  "pathSrc": "public/src",
+  "pathViews": "views",
+  "pathViewsSrc": "src",
+  "pathViewsDist": "dist",
+  "pathJsPluginSrc": "js/plugins",
+  "pathJsPluginDist": "js",
+  "pathJsDevAdmin": "js/admin",
+  "pathJsDevWeb": "js/web",
+  "pathStyle": "style",
+  "pathLess": "style/less",
+  "pathCss": "style/css",
+  "pathJs": "js",
+  "pathImg": "style/img",
+  "pathFonts": "style/fonts",
+  "pathTmp": ".tmp",
+  "pathTmp1": ".tmp/step1",
+  "pathTmp2": ".tmp/step2"
+}
