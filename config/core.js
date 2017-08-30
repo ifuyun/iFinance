@@ -7,6 +7,8 @@
  */
 const pkgCfg = require('../package.json');
 const credentials = require('./credentials');
+const isDev = process.env.ENV && process.env.ENV.trim() !== 'production';
+
 module.exports = {
     name: '爱记账',
     version: pkgCfg.version,
@@ -17,7 +19,8 @@ module.exports = {
     host: '127.0.0.1',
     port: 2017,
     domain: 'f.ifuyun.com',
-    ssoDomain: process.env.ENV && process.env.ENV.trim() === 'production' ? 'www.ifuyun.com' : 'i.ifuyun.com',
-    pathViews: process.env.ENV && process.env.ENV.trim() === 'production' ? 'dist' : 'src',
-    logLevel: process.env.ENV && process.env.ENV.trim() === 'production' ? 'INFO' : 'TRACE'
+    ssoDomain: isDev ? 'i.ifuyun.com' : 'www.ifuyun.com',
+    pathViews: isDev ? 'src' : 'dist',
+    logLevel: isDev ? 'TRACE' : 'INFO',
+    isDev
 };

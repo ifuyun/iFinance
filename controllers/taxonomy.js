@@ -40,7 +40,7 @@ module.exports = {
             },
             token: req.csrfToken(),
             page: 'taxonomy',
-            title: '分类目录'
+            title: '收支分类'
         };
         res.render(`${appConfig.pathViews}/admin/pages/taxonomy`, resData);
     },
@@ -116,7 +116,7 @@ module.exports = {
                     }).then((taxonomy) => cb(null, data));
                 }
             };
-            if (param.siblings.length > 1) {
+            if (param.siblings && param.siblings.length > 1) {
                 tasks.orders = (cb) => {
                     async.times(param.siblings.length, (i, nextFn) => {
                         const curId = param.siblings[i].trim();
